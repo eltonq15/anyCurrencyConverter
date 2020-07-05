@@ -18,11 +18,11 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch('https://fixer-fixer-currency-v1.p.rapidapi.com/symbols', {
+      const response = await fetch(`${process.env.REACT_APP_FIXER_API_HOST}/symbols`, {
         method: 'GET',
         headers: {
-          'x-rapidapi-host': 'fixer-fixer-currency-v1.p.rapidapi.com',
-          'x-rapidapi-key': 'e552d0b514msh56c28c0f6176d11p1d5bd6jsn1c6ef3505e16'
+          'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
+          'x-rapidapi-key': process.env.REACT_APP_FIXER_API_KEY
         }
       });
 
@@ -44,11 +44,11 @@ export default function App() {
       const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
       const date = formatDate(calendarDate);
       async function fetchData(date, origin, target) {
-        const response = await fetch(`https://fixer-fixer-currency-v1.p.rapidapi.com/${date}?base=${origin}&symbols=${target}`, {
+        const response = await fetch(`${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
           method: 'GET',
           headers: {
-            'x-rapidapi-host': 'fixer-fixer-currency-v1.p.rapidapi.com',
-            'x-rapidapi-key': 'e552d0b514msh56c28c0f6176d11p1d5bd6jsn1c6ef3505e16'
+            'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
+            'x-rapidapi-key': process.env.REACT_APP_FIXER_API_KEY
           }
         });
         const data = await response.json();
