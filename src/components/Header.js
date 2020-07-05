@@ -32,7 +32,7 @@ const headerStyle = {
 const headerStyleMobile = {
     backgroundColor: 'black',
     color: 'white',
-    height: 220,
+    height: 50,
     width: '100%',
     boxShadow: '0 5px 5px gray',
     fontFamily: 'Rokkitt',
