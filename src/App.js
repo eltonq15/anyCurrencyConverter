@@ -18,7 +18,7 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`${process.env.REACT_APP_FIXER_API_HOST}/symbols`, {
+      const response = await fetch(`https://${process.env.REACT_APP_FIXER_API_HOST}/symbols`, {
         method: 'GET',
         headers: {
           'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
@@ -44,7 +44,7 @@ export default function App() {
       const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
       const date = formatDate(calendarDate);
       async function fetchData(date, origin, target) {
-        const response = await fetch(`${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
+        const response = await fetch(`https://${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
           method: 'GET',
           headers: {
             'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
