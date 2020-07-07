@@ -10,7 +10,6 @@ export default function App() {
   const [currencyList, setCurrencyList] = useState([]);
   const [originCurrency, setOriginCurrency] = useState();
   const [targetCurrency, setTargetCurrency] = useState();
-  const [convertedValue, setConvertedValue] = useState([]);
   const [amount, setAmount] = useState(1);
   const [text, setText] = useState('');
   const [calendarDate, setCalendarDate] = useState(new Date());
@@ -18,7 +17,7 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`${process.env.REACT_APP_FIXER_API_HOST}/symbols`, {
+      const response = await fetch(`http://${process.env.REACT_APP_FIXER_API_HOST}/symbols`, {
         method: 'GET',
         headers: {
           'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
@@ -27,11 +26,10 @@ export default function App() {
       });
 
       const data = await response.json();
-
+      
       const keysToArray = Object.keys(data.symbols)
       const valuesToArray = Object.values(data.symbols)
-      const concatenatedList = keysToArray.map((key, index) => String(key) + ' - ' + String(valuesToArray[index]))
-
+      const concatenatedList = keysToArray.map((key, index) => String(key) + ' - ' + String(valuesToArray[index]));
       setCurrencyList(concatenatedList);
     };
 
@@ -44,18 +42,15 @@ export default function App() {
       const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
       const date = formatDate(calendarDate);
       async function fetchData(date, origin, target) {
-        const response = await fetch(`${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
+        const response = await fetch(`https://${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
           method: 'GET',
           headers: {
-            'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
-            'x-rapidapi-key': process.env.REACT_APP_FIXER_API_KEY
+            "x-rapidapi-host": process.env.REACT_APP_FIXER_API_HOST,
+            "x-rapidapi-key": process.env.REACT_APP_FIXER_API_KEY
           }
         });
         const data = await response.json();
         const valorConvertido = Object.values(data.rates);
-        console.log(valorConvertido);
-        setConvertedValue(Object.values(data.rates));
-        console.log(convertedValue)
         const text = `${shortOriginCurrencyName} ${Number(amount).toFixed(2)} = ${shortTargetCurrencyName} ${Number(valorConvertido * amount).toFixed(4)}`;
         setText(text);
       }
@@ -97,7 +92,6 @@ export default function App() {
     color: 'navy',
     background: 'linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%',
     marginTop: '-10px',
-    padding: '5px',
     padding: '8px',
     border: '1px solid navy',
     borderRadius: '50vh'
@@ -128,20 +122,20 @@ export default function App() {
             name='Origin currency'
             id='originCurrency'
             symbols={currencyList}
-            value={originCurrency}
+            value={originCurrency | ''}
             onChange={handleCurrencyChange} />
           <SelectionField
             label='Target currency'
             name='Target currency'
             id='targetCurrency'
             symbols={currencyList}
-            value={targetCurrency}
+            value={targetCurrency | ''}
             onChange={handleCurrencyChange} />
         </Row>
 
         <div style={{ display: 'flex', justifyContent: 'center', fontSize: 20, color: 'navy' }}>{text}</div>
       </MyCard>
-      <a href='https://br.linkedin.com/in/elton-alves-ribeiro' target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
+      <a href='https://br.linkedin.com/in/elton-alves-ribeiro' rel='noopener noreferrer' target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
     </div>
   );
 };
