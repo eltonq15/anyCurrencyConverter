@@ -23,6 +23,7 @@ export default function DatePicker(props) {
                 <Grid container justify="space-around">
                     <KeyboardDatePicker
                     style={ {width: '300px'} }
+                    autoOk
                     margin="normal"
                     id="date-picker-dialog"
                     label={props.label}
