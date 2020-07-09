@@ -18,21 +18,13 @@ export default function App() {
   useEffect(() => {
     async function fetchData() {
 
-      const response = await fetch(`https://${process.env.REACT_APP_FIXER_API_HOST}/symbols`, {
-        method: 'GET',
-        headers: {
-          'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
-          'x-rapidapi-key': process.env.REACT_APP_FIXER_API_KEY
-        }
+      const response = await fetch(process.env.REACT_APP_HEROKU_API_HOST, {
+        method: 'GET'
       });
 
       const data = await response.json();
 
-      const keysToArray = Object.keys(data.symbols)
-      const valuesToArray = Object.values(data.symbols)
-      const concatenatedList = keysToArray.map((key, index) => String(key) + ' - ' + String(valuesToArray[index]))
-
-      setCurrencyList(concatenatedList);
+      setCurrencyList(data);
     };
 
     fetchData();
@@ -41,7 +33,9 @@ export default function App() {
   useEffect(() => {
     if (originCurrency && targetCurrency && amount) {
       const shortOriginCurrencyName = String(originCurrency).split(' -')[0];
+      console.log(String(originCurrency).split(' -')[0])
       const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
+      console.log(String(targetCurrency).split(' -')[0])
       const date = formatDate(calendarDate);
       async function fetchData(date, origin, target) {
         const response = await fetch(`https://${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
