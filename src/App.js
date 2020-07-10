@@ -37,15 +37,12 @@ export default function App() {
       const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
       console.log(String(targetCurrency).split(' -')[0])
       const date = formatDate(calendarDate);
-      async function fetchData(date, origin, target) {
-        const response = await fetch(`https://${process.env.REACT_APP_FIXER_API_HOST}/${date}?base=${origin}&symbols=${target}`, {
+      async function fetchData(date, origin) {
+        const response = await fetch(`https://api.exchangeratesapi.io/history?start_at=${date}&end_at=${date}&base=${origin}`, {
           method: 'GET',
-          headers: {
-            'x-rapidapi-host': process.env.REACT_APP_FIXER_API_HOST,
-            'x-rapidapi-key': process.env.REACT_APP_FIXER_API_KEY
-          }
         });
         const data = await response.json();
+        console.log(data)
         const valorConvertido = Object.values(data.rates);
         console.log(valorConvertido);
         setConvertedValue(Object.values(data.rates));
