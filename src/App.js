@@ -10,7 +10,6 @@ export default function App() {
   const [currencyList, setCurrencyList] = useState([]);
   const [originCurrency, setOriginCurrency] = useState();
   const [targetCurrency, setTargetCurrency] = useState();
-  const [convertedValue, setConvertedValue] = useState([]);
   const [amount, setAmount] = useState(1);
   const [text, setText] = useState('');
   const [calendarDate, setCalendarDate] = useState(new Date());
@@ -33,22 +32,21 @@ export default function App() {
   useEffect(() => {
     if (originCurrency && targetCurrency && amount) {
       const shortOriginCurrencyName = String(originCurrency).split(' -')[0];
-      console.log(String(originCurrency).split(' -')[0])
       const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
-      console.log(String(targetCurrency).split(' -')[0])
       const date = formatDate(calendarDate);
       async function fetchData(date, origin) {
         const response = await fetch(`https://api.exchangeratesapi.io/history?start_at=${date}&end_at=${date}&base=${origin}`, {
           method: 'GET',
         });
         const data = await response.json();
-        console.log(data)
-        const valorConvertido = Object.values(data.rates);
-        console.log(valorConvertido);
-        setConvertedValue(Object.values(data.rates));
-        console.log(convertedValue)
-        const text = `${shortOriginCurrencyName} ${Number(amount).toFixed(2)} = ${shortTargetCurrencyName} ${Number(valorConvertido * amount).toFixed(4)}`;
-        setText(text);
+        const listaConversao = Object.values(data.rates)[0];
+        if (listaConversao) {
+          const index = Object.keys(listaConversao).indexOf(shortTargetCurrencyName);
+          const valorConvertido = Object.values(listaConversao)[index];
+          setText(`${shortOriginCurrencyName} ${Number(amount).toFixed(2)} = ${shortTargetCurrencyName} ${Number(valorConvertido * amount).toFixed(4)}`);
+        } else {
+          setText('Values were not updated to this date yet.');
+        }
       }
       fetchData(date, shortOriginCurrencyName, shortTargetCurrencyName);
     }
@@ -89,7 +87,6 @@ export default function App() {
     background: 'linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%',
     marginTop: '-10px',
     padding: '5px',
-    padding: '8px',
     border: '1px solid navy',
     borderRadius: '50vh'
   }
@@ -132,7 +129,7 @@ export default function App() {
 
         <div style={{ display: 'flex', justifyContent: 'center', fontSize: 20, color: 'navy' }}>{text}</div>
       </MyCard>
-      <a href='https://br.linkedin.com/in/elton-alves-ribeiro' target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
+      <a href='https://br.linkedin.com/in/elton-alves-ribeiro' rel="noopener noreferrer" target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
     </div>
   );
 };

@@ -24,6 +24,7 @@ export default function DatePicker(props) {
                     <KeyboardDatePicker
                     style={ {width: '300px'} }
                     autoOk
+                    disableFuture
                     margin="normal"
                     id="date-picker-dialog"
                     label={props.label}
