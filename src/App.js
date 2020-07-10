@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import { MyCard, Title } from './components/MyCard';
+import { MyCard } from './components/MyCard';
 import SelectionField from './components/SelectionField';
 import NumberField from './components/NumberField';
 import DatePicker from './components/DatePicker';
@@ -95,7 +95,6 @@ export default function App() {
     <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column', backgroundColor: '#aaa' }}>
       <Header title='Simple Currency Converter' />
       <MyCard>
-        <Title>Currency converter</Title>
         <Row>
           <NumberField
             id='outlined-number'
