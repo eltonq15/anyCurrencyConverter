@@ -19,23 +19,23 @@ export default function DatePicker(props) {
 
     return (
         <MuiThemeProvider theme={muiTheme}>
-            <MuiPickersUtilsProvider utils={MomentUtils} >
-                <Grid container justify="space-around">
+            <MuiPickersUtilsProvider utils={MomentUtils}>
+                <Grid container justify="space-around" style={{padding: 0, margin: '25px'}}>
                     <KeyboardDatePicker
-                    style={ {width: '300px'} }
-                    autoOk
-                    disableFuture
-                    margin="normal"
-                    id="date-picker-dialog"
-                    label={props.label}
-                    format="yyyy/MM/DD"
-                    value={props.value}
-                    onChange={props.onChange}
-                    inputVariant='outlined'
-                    KeyboardButtonProps={{
-                        'aria-label': 'change date',
-                    }}
-                />
+                        style={{ width: '250px' }}
+                        autoOk
+                        disableFuture
+                        margin="normal"
+                        id="date-picker-dialog"
+                        label={props.label}
+                        format="yyyy/MM/DD"
+                        value={props.value}
+                        onChange={props.onChange}
+                        inputVariant='outlined'
+                        KeyboardButtonProps={{
+                            'aria-label': 'change date',
+                        }}
+                    />
                 </Grid>
             </MuiPickersUtilsProvider >
         </MuiThemeProvider >

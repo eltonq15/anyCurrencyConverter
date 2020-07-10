@@ -86,7 +86,7 @@ export default function App() {
     color: 'navy',
     background: 'linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%',
     marginTop: '-10px',
-    padding: '5px',
+    padding: '8px',
     border: '1px solid navy',
     borderRadius: '50vh'
   }
@@ -125,8 +125,7 @@ export default function App() {
             value={targetCurrency}
             onChange={handleCurrencyChange} />
         </Row>
-
-        <div style={{ display: 'flex', justifyContent: 'center', fontSize: 20, color: 'navy' }}>{text}</div>
+        <div style={{ color: 'navy', display: 'flex', justifyContent: 'center', height:'50px' }}>{text}</div>
       </MyCard>
       <a href='https://br.linkedin.com/in/elton-alves-ribeiro' rel="noopener noreferrer" target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
     </div>

@@ -4,15 +4,10 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import InputLabel from '@material-ui/core/InputLabel';
 
-
-const divStyle = {
-    padding: '20px'
-}
-
 export default function SelectionField(props) {
 
     return (
-        <div style={divStyle}>
+        <div style={{margin: '25px'}}>
             <FormControl variant="outlined">
                 <InputLabel>{props.label}</InputLabel>
                 <Select
@@ -21,9 +16,9 @@ export default function SelectionField(props) {
                     onChange={props.onChange}
                     label={props.label}
                     name={props.name}
-                    style={{ width: "300px" }}
+                    style={{ width: "250px" }}
                 >
-                    <MenuItem value="" style={{ width: '300px' }}>
+                    <MenuItem value="" style={{ width: '250px' }}>
                         <em>Not selected</em>
                     </MenuItem>
                     {props.symbols.map((item, index) => <MenuItem key={index} value={item}>{item}</MenuItem>)}
