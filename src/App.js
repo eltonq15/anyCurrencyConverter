@@ -5,6 +5,7 @@ import SelectionField from './components/SelectionField';
 import NumberField from './components/NumberField';
 import DatePicker from './components/DatePicker';
 import { Row } from './components/styled/Row';
+import Logo from './logo-any.png';
 
 export default function App() {
   const [currencyList, setCurrencyList] = useState([]);
@@ -105,7 +106,9 @@ export default function App() {
 
   return (
     <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column', backgroundColor: '#aaa' }}>
-      <Header title='Simple Currency Converter' />
+      <div style={{ height: '35px', backgroundColor: 'black', display: 'flex', justifyContent: 'center',width:'100%', padding: '20px' }}>
+        <img src={Logo} alt="Logo any Currency Converter" width='350px' style={{borderRadius: '10px', background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)'}}/>
+      </div>
       <MyCard>
         <Row>
           <NumberField
@@ -156,7 +159,7 @@ export default function App() {
            purposes, in order to keep the balance. </h2>
         </div>
         <div style={textBoxStyle}>
-          <h1 style={{ textAlign: 'center' }}>How to compare currency rates in AnyCurrencyConverter.com? </h1>
+          <h1 style={{ textAlign: 'center' }}>How to compare currency rates in AnyCurrency? </h1>
           <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>It’s quite simple to compare currencies using
           this website, all you have to do is select the origin and target currency, as it comes already with
           the default amount (1.00) and date (current date). So let’s suppose you live in USA and you’re going
@@ -176,9 +179,9 @@ export default function App() {
         </div>
         <div style={textBoxStyle}>
           <h1 style={{ textAlign: 'center' }}>Money movement </h1>
-          <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>Dollar value might vary depending on many 
-          points, one of them, as pre-explained before, is the offer and demand case, when a coutry gets some 
-          loan with its neighbour i.e. and when the deadline has come, the country decides to pay and generates 
+          <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>Dollar value might vary depending on many
+          points, one of them, as pre-explained before, is the offer and demand case, when a coutry gets some
+          loan with its neighbour i.e. and when the deadline has come, the country decides to pay and generates
           a movement of billions of dollars, affecting directly  the way that actions, and trade Markets behave.
           </h2>
         </div>
