@@ -95,7 +95,7 @@ export default function App() {
     background: 'rgb(242,179,97)',
     background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)',
     marginBottom: '30px',
-    margin: '5%',
+    margin: '13%',
     padding: '20px',
     borderRadius: '20px',
     border: '2px white solid',
