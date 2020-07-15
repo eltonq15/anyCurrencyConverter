@@ -91,6 +91,18 @@ export default function App() {
     borderRadius: '50vh'
   }
 
+  const textBoxStyle = {
+    background: 'rgb(242,179,97)',
+    background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)',
+    marginBottom: '30px',
+    margin: '5%',
+    padding: '20px',
+    borderRadius: '20px',
+    border: '2px white solid',
+    color: 'white',
+    boxShadow: '5px -5px 5px gray'
+  };
+
   return (
     <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column', backgroundColor: '#aaa' }}>
       <Header title='Simple Currency Converter' />
@@ -125,9 +137,52 @@ export default function App() {
             value={targetCurrency}
             onChange={handleCurrencyChange} />
         </Row>
-        <div style={{ color: 'navy', display: 'flex', justifyContent: 'center', height:'50px' }}>{text}</div>
+        <div style={{ color: 'navy', display: 'flex', justifyContent: 'center', height: '50px' }}>{text}</div>
       </MyCard>
       <a href='https://br.linkedin.com/in/elton-alves-ribeiro' rel="noopener noreferrer" target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
-    </div>
+      <div style={{ marginTop: '35vh', display: 'flex', flexDirection: 'column' }}>
+        <div style={textBoxStyle}>
+          <h1 style={{ textAlign: 'center' }}>What is any currency converter used for? </h1>
+          <h2 style={{ textAlign: 'justify' }}>It’s a completely free web service used to provide people, real-time currency rates, being fed hourly with reliable values
+          of reliable bank APIs, in order to help people to compare currencies according to specific dates and to take better decisions,
+        for example, when is the better date to buy or sell (exchange).</h2>
+        </div>
+        <div style={textBoxStyle}>
+          <h1 style={{ textAlign: 'center' }}>Why are there so many different currencies? </h1>
+          <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>Despite we’re living in a
+          globalized world, each country has its own policy, own Market, taxes and different ways to deal with its
+          own economy. As far as strategic decisions need to be taken by government people to control the inner
+          flux of Money, it becomes almost mandatory for countries to adopt a currency for trading and economic
+           purposes, in order to keep the balance. </h2>
+        </div>
+        <div style={textBoxStyle}>
+          <h1 style={{ textAlign: 'center' }}>How to compare currency rates in AnyCurrencyConverter.com? </h1>
+          <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>It’s quite simple to compare currencies using
+          this website, all you have to do is select the origin and target currency, as it comes already with
+          the default amount (1.00) and date (current date). So let’s suppose you live in USA and you’re going
+          to have those dream vacations in Brazil, well... you have no idea on how much this currency costs..
+          in the origin field you can insert your currency (American dollar, or USD) and in the second field,
+          insert the corresponding currency (Brazilian Real, or BRL). As long as you fill these two fields,
+          the converted amount will show up automatically, and voilá... you can also change currencies
+           whenever you’d like to :D</h2>
+        </div>
+        <div style={textBoxStyle}>
+          <h1 style={{ textAlign: 'center' }}>Why are there ads on this page? </h1>
+          <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>As any common web page, we have costs to keep
+          this page “on air”, such as hosting prices, database keeping, API prices (not cheap), and other fees...
+          That’s why we highly ask for your comprehension, as our main focus is to provide updated currency rates
+          conversions with fidelity and speed, and above all, completely for free. This ads might annoy you
+          sometimes, but they are necessary for us.</h2>
+        </div>
+        <div style={textBoxStyle}>
+          <h1 style={{ textAlign: 'center' }}>Money movement </h1>
+          <h2 style={{ textAlign: 'justify', marginBottom: '30px' }}>Dollar value might vary depending on many 
+          points, one of them, as pre-explained before, is the offer and demand case, when a coutry gets some 
+          loan with its neighbour i.e. and when the deadline has come, the country decides to pay and generates 
+          a movement of billions of dollars, affecting directly  the way that actions, and trade Markets behave.
+          </h2>
+        </div>
+      </div >
+    </div >
   );
 };

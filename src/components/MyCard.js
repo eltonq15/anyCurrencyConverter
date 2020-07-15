@@ -15,7 +15,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.1);
 
 @media(max-width: 800px) {
   display: flex;
-  paddingTop: 25px
+  paddingTop: 25px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
