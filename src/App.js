@@ -6,6 +6,7 @@ import NumberField from './components/NumberField';
 import DatePicker from './components/DatePicker';
 import { Row } from './components/styled/Row';
 import Logo from './logo-any.png';
+import ImageAvatar from './components/Avatar'
 
 export default function App() {
   const [currencyList, setCurrencyList] = useState([
@@ -114,6 +115,7 @@ export default function App() {
     display: "flex",
     justifyContent: "center",
     fontSize: 13,
+    height:'20px',
     color: 'navy',
     background: 'linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%',
     marginTop: '-10px',
@@ -174,7 +176,11 @@ export default function App() {
         </Row>
         <div style={{ color: 'navy', display: 'flex', justifyContent: 'center', height: '50px' }}>{text}</div>
       </MyCard>
-      <a href='https://br.linkedin.com/in/elton-alves-ribeiro' rel="noopener noreferrer" target='_blank' style={designedStyle}>Designed by: Elton Alves Ribeiro</a>
+      <span style={{display: 'flex',alignItems:'center', justifyContent:'center'}}>
+      <ImageAvatar/>
+      <a href='https://br.linkedin.com/in/elton-alves-ribeiro' rel="noopener noreferrer" target='_blank' style={designedStyle}> Designed by: Elton Alves Ribeiro</a>
+
+      </span>
       <div style={{ marginTop: '35vh', display: 'flex', flexDirection: 'column' }}>
         <div style={textBoxStyle}>
           <h1 style={{ textAlign: 'center' }}>What is any currency converter used for? </h1>
