@@ -8,45 +8,75 @@ import { Row } from './components/styled/Row';
 import Logo from './logo-any.png';
 
 export default function App() {
-  const [currencyList, setCurrencyList] = useState([]);
+  const [currencyList, setCurrencyList] = useState([
+    "AUD - Australian Dollar",
+    "BGN - Bulgarian Lev",
+    "BRL - Brazilian Real",
+    "CAD - Canadian Dollar",
+    "CHF - Swiss Franc",
+    "CNY - Chinese Yuan",
+    "CZK - Czech Republic Koruna",
+    "DKK - Danish Krone",
+    "EUR - Euro",
+    "GBP - British Pound Sterling",
+    "HKD - Hong Kong Dollar",
+    "HRK - Croatian Kuna",
+    "HUF - Hungarian Forint",
+    "IDR - Indonesian Rupiah",
+    "ILS - Israeli New Sheqel",
+    "INR - Indian Rupee",
+    "ISK - Icelandic Króna",
+    "JPY - Japanese Yen",
+    "KRW - South Korean Won",
+    "MXN - Mexican Peso",
+    "MYR - Malaysian Ringgit",
+    "NOK - Norwegian Krone",
+    "NZD - New Zealand Dollar",
+    "PHP - Philippine Peso",
+    "PLN - Polish Zloty",
+    "RON - Romanian Leu",
+    "RUB - Russian Ruble",
+    "SEK - Swedish Krona",
+    "SGD - Singapore Dollar",
+    "THB - Thai Baht",
+    "TRY - Turkish Lira",
+    "USD - United States Dollar",
+    "ZAR - South African Rand",
+  ]);
   const [originCurrency, setOriginCurrency] = useState();
   const [targetCurrency, setTargetCurrency] = useState();
   const [amount, setAmount] = useState(1);
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [calendarDate, setCalendarDate] = useState(new Date());
 
   useEffect(() => {
-    async function fetchData() {
-
-      const response = await fetch(process.env.REACT_APP_HEROKU_API_HOST, {
-        method: 'GET'
-      });
-
-      const data = await response.json();
-
-      setCurrencyList(data);
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
     if (originCurrency && targetCurrency && amount) {
-      const shortOriginCurrencyName = String(originCurrency).split(' -')[0];
-      const shortTargetCurrencyName = String(targetCurrency).split(' -')[0];
+      const shortOriginCurrencyName = String(originCurrency).split(" -")[0];
+      const shortTargetCurrencyName = String(targetCurrency).split(" -")[0];
       const date = formatDate(calendarDate);
       async function fetchData(date, origin) {
-        const response = await fetch(`https://api.exchangeratesapi.io/history?start_at=${date}&end_at=${date}&base=${origin}`, {
-          method: 'GET',
-        });
+        const response = await fetch(
+          `https://api.exchangeratesapi.io/history?start_at=${date}&end_at=${date}&base=${origin}`,
+          {
+            method: "GET",
+          }
+        );
         const data = await response.json();
         const listaConversao = Object.values(data.rates)[0];
         if (listaConversao) {
-          const index = Object.keys(listaConversao).indexOf(shortTargetCurrencyName);
+          const index = Object.keys(listaConversao).indexOf(
+            shortTargetCurrencyName
+          );
           const valorConvertido = Object.values(listaConversao)[index];
-          setText(`${shortOriginCurrencyName} ${Number(amount).toFixed(2)} = ${shortTargetCurrencyName} ${Number(valorConvertido * amount).toFixed(4)}`);
+          setText(
+            `${shortOriginCurrencyName} ${Number(amount).toFixed(
+              2
+            )} = ${shortTargetCurrencyName} ${Number(
+              valorConvertido * amount
+            ).toFixed(4)}`
+          );
         } else {
-          setText('Values were not updated to this date yet.');
+          setText("Values were not updated to this date yet.");
         }
       }
       fetchData(date, shortOriginCurrencyName, shortTargetCurrencyName);
@@ -62,27 +92,27 @@ export default function App() {
   };
 
   const handleCurrencyChange = (event) => {
-    event.target.name === 'Origin currency' ? setOriginCurrency(event.target.value) : setTargetCurrency(event.target.value);
+    event.target.name === "Origin currency"
+      ? setOriginCurrency(event.target.value)
+      : setTargetCurrency(event.target.value);
   };
 
   function formatDate(date) {
     var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
+      month = "" + (d.getMonth() + 1),
+      day = "" + d.getDate(),
       year = d.getFullYear();
 
-    if (month.length < 2)
-      month = '0' + month;
-    if (day.length < 2)
-      day = '0' + day;
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
 
-    return [year, month, day].join('-');
+    return [year, month, day].join("-");
   }
 
   const designedStyle = {
-    textDecoration: 'none',
-    display: 'flex',
-    justifyContent: 'center',
+    textDecoration: "none",
+    display: "flex",
+    justifyContent: "center",
     fontSize: 13,
     color: 'navy',
     background: 'linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%',
@@ -112,9 +142,9 @@ export default function App() {
       <MyCard>
         <Row>
           <NumberField
-            id='outlined-number'
-            label='Amount'
-            type='number'
+            id="outlined-number"
+            label="Amount"
+            type="number"
             value={amount}
             onChange={handleAmountChange}
           />
@@ -126,19 +156,21 @@ export default function App() {
         </Row>
         <Row>
           <SelectionField
-            label='Origin currency'
-            name='Origin currency'
-            id='originCurrency'
+            label="Origin currency"
+            name="Origin currency"
+            id="originCurrency"
             symbols={currencyList}
             value={originCurrency}
-            onChange={handleCurrencyChange} />
+            onChange={handleCurrencyChange}
+          />
           <SelectionField
-            label='Target currency'
-            name='Target currency'
-            id='targetCurrency'
+            label="Target currency"
+            name="Target currency"
+            id="targetCurrency"
             symbols={currencyList}
             value={targetCurrency}
-            onChange={handleCurrencyChange} />
+            onChange={handleCurrencyChange}
+          />
         </Row>
         <div style={{ color: 'navy', display: 'flex', justifyContent: 'center', height: '50px' }}>{text}</div>
       </MyCard>
@@ -188,4 +220,4 @@ export default function App() {
       </div >
     </div >
   );
-};
+}
