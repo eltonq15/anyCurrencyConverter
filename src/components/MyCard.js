@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const MyCard = styled.div`
-background: linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%);
+background: linear-gradient(71deg, #7fd5e4 0%, rgba(255,255,255,1) 100%);
 display: flex;
 justify-content: center;
 align-items: center;
