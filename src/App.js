@@ -117,8 +117,7 @@ export default function App() {
     fontSize: 13,
     height:'20px',
     color: 'navy',
-    background: 'linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%'),
-    // background: 'linear-gradient(71deg, rgba(180,187,255,1) 0%, rgba(255,255,255,1) 100%',
+    background: 'linear-gradient(71deg, #7fd5e4 0%, rgba(255,255,255,1) 100%',
     marginTop: '-10px',
     padding: '8px',
     border: '1px solid navy',
@@ -138,8 +137,8 @@ export default function App() {
   };
 
   return (
-    <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column', backgroundColor: '#614888' }}>
-      <div style={{ height: '35px', backgroundColor: 'black', display: 'flex', justifyContent: 'center',width:'100%', padding: '20px' }}>
+    <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column',     background: 'linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%)'}}>
+      <div style={{ height: '35px', backgroundColor: '#006e79', display: 'flex', justifyContent: 'center',width:'100%', padding: '20px' }}>
         <img src={Logo} alt="Logo any Currency Converter" width='350px' style={{borderRadius: '10px', background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)'}}/>
       </div>
       <MyCard>
