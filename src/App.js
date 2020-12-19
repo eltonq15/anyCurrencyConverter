@@ -137,7 +137,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column',     background: 'linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%)'}}>
+    <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column',     background: 'linear-gradient(329.54deg, #8009ab 0%, #4d0269k 100%)'}}>
       <div style={{ height: '35px', backgroundColor: '#006e79', display: 'flex', justifyContent: 'center',width:'100%', padding: '20px' }}>
         <img src={Logo} alt="Logo any Currency Converter" width='350px' style={{borderRadius: '10px', background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)'}}/>
       </div>
