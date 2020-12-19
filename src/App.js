@@ -117,7 +117,7 @@ export default function App() {
     fontSize: 13,
     height:'20px',
     color: 'navy',
-    background: 'linear-gradient(71deg, #7fd5e4 0%, rgba(255,255,255,1) 100%',
+    background: 'linear-gradient(71deg, #61abb8 0%, #ccf2f8 100%',
     marginTop: '-10px',
     padding: '8px',
     border: '1px solid navy',
@@ -125,20 +125,19 @@ export default function App() {
   }
 
   const textBoxStyle = {
-    background: 'rgb(242,179,97)',
-    background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)',
+    background: 'linear-gradient(30deg, #145763 0%, #242525 100%)',
     marginBottom: '30px',
-    margin: '13%',
+    margin: '15% 10% 5% 10%',
     padding: '20px',
     borderRadius: '20px',
     border: '2px white solid',
     color: 'white',
-    boxShadow: '5px -5px 5px gray'
+    boxShadow: 'black 15px 15px 40px'
   };
 
   return (
-    <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column',     background: 'linear-gradient(329.54deg, #8009ab 0%, #4d0269k 100%)'}}>
-      <div style={{ height: '35px', backgroundColor: '#006e79', display: 'flex', justifyContent: 'center',width:'100%', padding: '20px' }}>
+    <div style={{ height: '100vh', width: '100%', overflowX: 'hidden', display: 'flex', alignItems: 'center', flexDirection: 'column',     background: 'linear-gradient(329.54deg, #16a397 0%, #100c1f 100%)'}}>
+      <div style={{ height: '35px', backgroundColor: '#006e79', display: 'flex', justifyContent: 'center',width:'100%', padding: '20px', boxShadow: '0 0px 30px black' }}>
         <img src={Logo} alt="Logo any Currency Converter" width='350px' style={{borderRadius: '10px', background: 'linear-gradient(30deg, rgba(242,179,97,1) 0%, rgba(211,72,97,1) 50%, rgba(160,45,168,1) 100%)'}}/>
       </div>
       <MyCard>
