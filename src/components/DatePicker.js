@@ -11,7 +11,7 @@ export default function DatePicker(props) {
         palette: {
             primary: {
                 light: '#000',
-                main: '#000',
+                main: '#00796e',
                 dark: '#000'
             }
         }
