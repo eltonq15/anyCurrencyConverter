@@ -14,7 +14,7 @@ import Money3 from "./money3.jpg";
 import Money4 from "./money4.jpg";
 
 export default function App() {
-  const [currencyList, setCurrencyList] = useState([
+  const [currencyList] = useState([
     "AUD - Australian Dollar",
     "BGN - Bulgarian Lev",
     "BRL - Brazilian Real",
@@ -245,6 +245,7 @@ export default function App() {
         >
           <img
             src={Money1}
+            alt="Money and currency"
             style={
               window.matchMedia("(min-width: 800px)").matches
                 ? {
@@ -270,7 +271,6 @@ export default function App() {
               height: "100vh",
               width: "100vw",
               boxShadow: "0 0 10px black",
-              boxShadow: "0 0 10px black",
               background:
                 "linear-gradient(179.54deg, #153269f2 0%, #000000 100%)",
             }}
@@ -279,7 +279,7 @@ export default function App() {
               <h1 style={{ textAlign: "center" }}>
                 What is any currency converter used for?{" "}
               </h1>
-              <h2 style={{ textAlign: "justify" }}>
+              <h2 style={{ textAlign: "justify", fontSize: "1.1rem" }}>
                 It’s a completely free web service used to provide people,
                 real-time currency rates, being fed hourly with reliable values
                 of reliable bank APIs, in order to help people to compare
@@ -299,6 +299,7 @@ export default function App() {
         >
           <img
             src={Money2}
+            alt="Money and currency"
             style={
               window.matchMedia("(min-width: 800px)").matches
                 ? {
@@ -324,7 +325,6 @@ export default function App() {
               height: "100vh",
               width: "100vw",
               boxShadow: "0 0 10px black",
-              boxShadow: "0 0 10px black",
               background:
                 "linear-gradient(179.54deg, #5e0707f2 0%, #000000 100%)",
             }}
@@ -333,7 +333,13 @@ export default function App() {
               <h1 style={{ textAlign: "center" }}>
                 Why are there so many different currencies?{" "}
               </h1>
-              <h2 style={{ textAlign: "justify", marginBottom: "30px" }}>
+              <h2
+                style={{
+                  textAlign: "justify",
+                  marginBottom: "30px",
+                  fontSize: "1.1rem",
+                }}
+              >
                 Despite we’re living in a globalized world, each country has its
                 own policy, own Market, taxes and different ways to deal with
                 its own economy. As far as strategic decisions need to be taken
@@ -353,6 +359,7 @@ export default function App() {
         >
           <img
             src={Money3}
+            alt="Money and currency"
             style={
               window.matchMedia("(min-width: 800px)").matches
                 ? {
@@ -378,14 +385,19 @@ export default function App() {
               height: "100vh",
               width: "100vw",
               boxShadow: "0 0 10px black",
-              boxShadow: "0 0 10px black",
               background:
                 "linear-gradient(179.54deg, #231635f2 0%, #100c1f 100%)",
             }}
           >
             <div style={textBoxStyle}>
               <h1 style={{ textAlign: "center" }}>Money movement </h1>
-              <h2 style={{ textAlign: "justify", marginBottom: "30px" }}>
+              <h2
+                style={{
+                  textAlign: "justify",
+                  marginBottom: "30px",
+                  fontSize: "1.1rem",
+                }}
+              >
                 Dollar value might vary depending on many points, one of them,
                 as pre-explained before, is the offer and demand case, when a
                 coutry gets some loan with its neighbour i.e. and when the
@@ -405,6 +417,7 @@ export default function App() {
         >
           <img
             src={Money4}
+            alt="Money and currency"
             style={
               window.matchMedia("(min-width: 800px)").matches
                 ? {
@@ -442,7 +455,7 @@ export default function App() {
                 style={{
                   textAlign: "justify",
                   marginBottom: "30px",
-                  fontSize: "1.2rem",
+                  fontSize: "1.1rem",
                 }}
               >
                 It’s quite simple to compare currencies using this website, all
