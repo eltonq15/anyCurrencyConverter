@@ -7,6 +7,7 @@ justify-content: center;
 align-items: center;
 width: 650px; 
 margin: 50px auto;
+margin-top: 10%;
 border-radius: 10px;
 padding: 0;
 flex-direction: column;
