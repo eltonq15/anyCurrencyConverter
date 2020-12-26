@@ -183,8 +183,8 @@ export default function App() {
                         value={calendarDate}
                         onChange={handleDateChange}
                       />
-                    </Row>
-                    <Row>
+                    {/* </Row>
+                    <Row> */}
                       <SelectionField
                         label="Origin currency"
                         name="Origin currency"
@@ -459,9 +459,8 @@ export default function App() {
                 }}
               >
                 It’s quite simple to compare currencies using this website, all
-                you have to do is select the origin and target currency, as it
-                comes already with the default amount (1.00) and date (current
-                date). So let’s suppose you live in USA and you’re going to have
+                you have to do is select the origin and target currency. 
+                So let’s suppose you live in USA and you’re going to have
                 those dream vacations in Brazil, well... you have no idea on how
                 much this currency costs.. in the origin field you can insert
                 your currency (American dollar, or USD) and in the second field,

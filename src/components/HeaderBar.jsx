@@ -17,7 +17,6 @@ const HeaderBar = () => {
               backgroundColor: "#006e79",
               display: "flex",
               justifyContent: "center",
-              width: "100%",
               padding: "20px",
               boxShadow: "0 0px 30px black",
             }}
